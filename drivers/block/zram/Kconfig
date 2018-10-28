@@ -87,3 +87,7 @@ config HYBRIDSWAP_ASYNC_COMPRESS
 	  for compress anon pages.
 	  If unsure, say N here.
 	  This feature will reduce the kswapd cpu load.
+	  
+config ZRAM_DEFAULT_COMP_ALGORITHM
+	string "Default ZRAM algorithm"
+	default "lzo"
