@@ -170,6 +170,7 @@ static int one_thousand = 1000;
 unsigned int sysctl_uxio_io_opt = true;
 bool sysctl_wbt_enable = true;
 #endif 
+static int max_swappiness = 200;
 #ifdef CONFIG_PRINTK
 static int ten_thousand = 10000;
 #endif
@@ -1634,11 +1635,7 @@ static struct ctl_table vm_table[] = {
 		.mode		= 0644,
 		.proc_handler	= proc_dointvec_minmax,
 		.extra1		= &zero,
-#if defined(OPLUS_FEATURE_ZRAM_OPT) && defined(CONFIG_OPLUS_ZRAM_OPT)
-		.extra2		= &two_hundred,
-#else
-		.extra2		= &one_hundred,
-#endif /*OPLUS_FEATURE_ZRAM_OPT*/
+		.extra2		= &max_swappiness,
 	},
 #if defined(OPLUS_FEATURE_ZRAM_OPT) && defined(CONFIG_OPLUS_ZRAM_OPT)
 	{
