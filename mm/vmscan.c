@@ -190,12 +190,12 @@ struct scan_control {
 /*
  * From 0 .. 200.  Higher means more swappy.
  */
-int vm_swappiness = 60;
+int vm_swappiness = 160;
 #if defined(OPLUS_FEATURE_ZRAM_OPT) && defined(CONFIG_OPLUS_ZRAM_OPT)
 /*
  * Direct reclaim swappiness, exptct 0 - 60. Higher means more swappy and slower.
  */
-int direct_vm_swappiness = 60;
+int direct_vm_swappiness = 160;
 #endif /*OPLUS_FEATURE_ZRAM_OPT*/
 
 #ifdef CONFIG_DYNAMIC_TUNNING_SWAPPINESS
