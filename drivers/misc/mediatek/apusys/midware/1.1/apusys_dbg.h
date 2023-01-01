@@ -9,7 +9,6 @@
 extern bool apusys_dump_force;
 extern bool apusys_dump_skip;
 
-void apusys_dump_init(struct device *dev);
 void apusys_reg_dump(void);
 int apusys_dump_show(struct seq_file *sfile, void *v);
 void apusys_dump_reg_skip(int onoff);
