@@ -519,7 +519,7 @@ static int adsp_ap_resume(struct device *dev)
 {
 	if (is_adsp_system_running()) {
 		adsp_timesync_resume();
-		pr_info("%s, time sync unfreeze", __func__);
+		pr_debug("%s, time sync unfreeze", __func__);
 	}
 	return 0;
 }
