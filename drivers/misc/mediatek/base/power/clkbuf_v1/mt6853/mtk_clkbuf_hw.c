@@ -602,7 +602,7 @@ static void pmic_clk_buf_ctrl(enum CLK_BUF_SWCTRL_STATUS_T *status)
 		PMIC_REG_MASK, PMIC_REG_SHIFT);
 	pmic_read_interface(PMIC_DCXO_CW09, &pmic_cw09,
 		PMIC_REG_MASK, PMIC_REG_SHIFT);
-	pr_info("%s DCXO_CW00=0x%x, CW09=0x%x, clk_buf_swctrl=[%u %u %u %u 0 0 %u]\n",
+	pr_debug("%s DCXO_CW00=0x%x, CW09=0x%x, clk_buf_swctrl=[%u %u %u %u 0 0 %u]\n",
 		__func__, pmic_cw00, pmic_cw09, status[XO_SOC], status[XO_WCN],
 		status[XO_NFC], status[XO_CEL], status[XO_EXT]);
 }
