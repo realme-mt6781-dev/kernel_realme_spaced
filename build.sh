@@ -45,7 +45,6 @@ PATH="${PWD}/clang/bin:${PATH}" \
 make -j$(nproc --all) O=out \
                       CC="clang" \
                       LLVM=1 \
-                      LLVM_IAS=1 \
                        CONFIG_NO_ERROR_ON_MISMATCH=y 2>&1 | tee error.log 
 }
 
