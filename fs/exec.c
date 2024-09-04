@@ -1877,7 +1877,7 @@ out_ret:
 	return retval;
 }
 
-static int do_execveat_common(int fd, struct filename *filename,
+staticstatic int do_execveat_common(int fd, struct filename *filename,
 			      struct user_arg_ptr argv,
 			      struct user_arg_ptr envp,
 			      int flags)
