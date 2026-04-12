@@ -51,10 +51,10 @@ function compile() {
   make -j$(nproc --all) O=out ARCH=arm64 spaced_defconfig
 
   # Add clang bin directory to PATH
-  PATH="${PWD}/clang/bin:${PATH}"
+  PATH="${PWD}/clang/bin:${PATH}:${PWD}/clang/bin:${PATH}:${PWD}/clang/bin:${PATH}"
 
   # Build the kernel with clang and log output
-  make -j$(nproc --all) O=out CC="clang" LLVM=1 CONFIG_NO_ERROR_ON_MISMATCH=y 2>&1 | tee build.log
+  make -j$(nproc --all) O=out CC="clang" CLANG_TRIPLE=aarch64-linux-gnu- CROSS_COMPILE="${PWD}/clang/bin/aarch64-linux-gnu-" CROSS_COMPILE_ARM32="${PWD}/clang/bin/arm-linux-gnueabi-" LLVM=1 LLVM_IAS=1 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf OBJSIZE=llvm-size STRIP=llvm-strip CONFIG_NO_ERROR_ON_MISMATCH=y 2>&1 | tee build.log
 }
 
 function zupload()
